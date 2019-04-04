@@ -1,0 +1,26 @@
+ ion-slides.slide-page{
+  height: 30vh;
+}
+
+ion-slides #slide1 {
+  background-image: url('../assets/img/pizza1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+ion-slides #slide2 {
+  background-image: url('../assets/img/pizza2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+ion-slides #slide3 {
+  background-image: url('../assets/img/pizza3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+ion-img #logo-pizza {
+  background-image: url('../assets/img/logo.png');
+}
