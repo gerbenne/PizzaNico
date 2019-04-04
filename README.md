@@ -1,5 +1,5 @@
 # PizzaNico
 
-cd project
-npm install
-ionic serve
+#cd project
+#npm install
+#ionic serve
