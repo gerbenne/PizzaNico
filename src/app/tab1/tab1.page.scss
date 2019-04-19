@@ -24,3 +24,12 @@ ion-slides #slide3 {
 ion-img #logo-pizza {
   background-image: url('../assets/img/logo.png');
 }
+
+#logo-home {
+  display: block;
+  margin: auto;
+}
+
+ion-toolbar {
+  --background :#4BB748;
+}

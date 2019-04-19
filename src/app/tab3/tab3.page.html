@@ -1,22 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Connexion
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-row>
-      <ion-col align-self-center>
-  <!-- Input with placeholder -->
-    <ion-input placeholder="Insérer votre adresse mail"></ion-input>
-    <ion-input placeholder="Insérer votre mot de passe"></ion-input>
-    <ion-button shape="round" fill="outline">Connexion</ion-button>
-    <ion-content>
-      <a href="">Mot de passe oublié</a>
-    </ion-content>
-  </ion-col>
-  </ion-row>
-
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3 id="login-title">Connexion</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button size="large" shape="round" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <div id="link-forgot-mdp">
+          <a>Mot de passe Oublié</a> 
+        </div>
+    </ion-row>
+    <ion-row>
+        <ion-button size="large" shape="round" (click)="ngOnInit()" >Register</ion-button>
+    </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

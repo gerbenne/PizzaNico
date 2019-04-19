@@ -1,1 +1,22 @@
+ion-item{
+    --background: #F5F5F5;
+    --color: #000000;
+    --border-radius: 64px;
+    margin-bottom: 20px;
+}
+ion-button{
+    --background: #4BB748;
+}
 
+a{
+    color: #000000;
+}
+
+#link-forgot-mdp {
+    display: block;
+    margin: auto;
+}
+
+#login-title {
+    color: #000000;
+}

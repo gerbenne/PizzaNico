@@ -45,6 +45,11 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
+  },
+  {
+    path: 'register',
+    redirectTo: '../register/register.module#RegisterPage',
+    pathMatch: 'full'
   }
 ];
 
