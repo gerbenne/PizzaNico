@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { Tab3Page } from './tab3.page';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
 
 @NgModule({
   imports: [
@@ -17,16 +16,8 @@ import { Component, OnInit } from '@angular/core';
   ],
   declarations: [Tab3Page]
 })
-export class Tab3PageModule implements OnInit {
-  constructor (private navController: NavController, private router: Router) {
-    console.log(this);
-  }
-  ngOnInit() {
-    console.log('test');
-  }
+export class Tab3PageModule{
+  constructor (private navController: NavController, private router: Router) {}
 
-  toRegister() {
-    console.log('test1');
-    this.navCtrl.push('register');
-  }
 }
+

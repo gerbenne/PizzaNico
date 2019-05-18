@@ -48,7 +48,7 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    redirectTo: '../register/register.module#RegisterPage',
+    loadChildren: './register/register.module#RegisterPageModule',
     pathMatch: 'full'
   }
 ];
