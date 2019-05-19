@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from  "@angular/router";
 
 @Component({
@@ -6,12 +6,9 @@ import { Router } from  "@angular/router";
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
-
-  constructor(private  router:  Router) { }
-
-  ngOnInit() {
-
-  }
-
+export class RegisterPage {
+    constructor(private  router:  Router) { }
+    toLogin():void {
+        this.router.navigateByUrl('');
+    }
 }

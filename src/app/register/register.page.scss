@@ -1,0 +1,25 @@
+ion-content {
+    --background: #fff url('../assets/img/fish-section-bg-80.png') no-repeat center center / cover;
+}
+
+ion-item {
+    --background: #F5F5F5;
+    --color: #000000;
+    --border-radius: 64px;
+    margin-bottom: 20px;
+}
+
+ion-button {
+    --background: #4BB748;
+}
+
+#link-forgot-mdp {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+a {
+    color: #000000;
+    text-decoration: underline;
+}

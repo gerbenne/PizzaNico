@@ -1,9 +1,43 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title>Inscription</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-Hello
+<ion-content padding>
+  <form #form="ngForm" (ngSubmit)="submit(form)">
+    <ion-grid>
+      <ion-row justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-item>
+              <ion-input name="text" type="text" placeholder="Nom" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="text" type="text" placeholder="Prénom" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="tel" type="tel" placeholder="Téléphone" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="Email" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Mot de Passe" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Confirmation Mot de Passe" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button size= "large" shape="round" type="submit" [disabled]="form.invalid" expand="block">S'inscrire</ion-button>
+          </div>
+          <div id="link-forgot-mdp">
+            <a (click)="toLogin()" >Se connecter</a>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>
+
