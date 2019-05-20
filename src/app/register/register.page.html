@@ -5,28 +5,43 @@
 </ion-header>
 
 <ion-content padding>
-  <form #form="ngForm" (ngSubmit)="submit(form)">
+  <form [formGroup]="form" (ngSubmit)="signin()">
     <ion-grid>
       <ion-row justify-content-center>
         <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
           <div padding>
-            <ion-item>
-              <ion-input name="text" type="text" placeholder="Nom" ngModel required></ion-input>
+            <ion-item *ngIf="errMdp">
+              <ion-text>
+                    Les deux mot de passse ne sont pas identiques
+              </ion-text>
+            </ion-item>
+            <ion-item *ngIf="done">
+              <ion-text>
+                Compte créer avec succeès
+              </ion-text>
+            </ion-item>
+            <ion-item *ngIf="errCreate">
+              <ion-text>
+                {{errCreate}}
+              </ion-text>
             </ion-item>
             <ion-item>
-              <ion-input name="text" type="text" placeholder="Prénom" ngModel required></ion-input>
+              <ion-input name="text" type="text" placeholder="Nom" formControlName="last_name"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="tel" type="tel" placeholder="Téléphone" ngModel required></ion-input>
+              <ion-input name="text" type="text" placeholder="Prénom" formControlName="first_name"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="email" type="email" placeholder="Email" ngModel required></ion-input>
+              <ion-input name="tel" type="tel" placeholder="Téléphone" formControlName="phone"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="password" type="password" placeholder="Mot de Passe" ngModel required></ion-input>
+              <ion-input name="email" type="email" placeholder="Email" formControlName="mail"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-input name="password" type="password" placeholder="Confirmation Mot de Passe" ngModel required></ion-input>
+              <ion-input name="password" type="password" placeholder="Mot de Passe" formControlName="password"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Confirmation Mot de Passe" formControlName="passwordC"></ion-input>
             </ion-item>
           </div>
           <div padding>

@@ -46,11 +46,6 @@ const routes: Routes = [
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
   },
-  {
-    path: 'register',
-    loadChildren: './register/register.module#RegisterPageModule',
-    pathMatch: 'full'
-  }
 ];
 
 @NgModule({

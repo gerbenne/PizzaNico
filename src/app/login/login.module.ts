@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { Tab3Page } from './tab3.page';
+import { LoginPage } from './login.page';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
@@ -12,12 +12,12 @@ import { NavController } from '@ionic/angular';
     IonicModule,
     CommonModule,
     FormsModule,
-    // ReactiveFormsModule,
-    RouterModule.forChild([{ path: '', component: Tab3Page }])
+    ReactiveFormsModule,
+    RouterModule.forChild([{ path: '', component: LoginPage }])
   ],
-  declarations: [Tab3Page]
+  declarations: [LoginPage]
 })
-export class Tab3PageModule{
+export class LoginPageModule{
   constructor (private navController: NavController, private router: Router) {}
 
 }
