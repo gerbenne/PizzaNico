@@ -1,32 +1,9 @@
-<!--<ion-content padding>-->
-  <!--<form [formGroup]="form" (ngSubmit)="login(form)">-->
-    <!--<ion-grid>-->
-      <!--<ion-row justify-content-center>-->
-        <!--<ion-col align-self-center size-md="6" size-lg="5" size-xs="12">-->
-          <!--<div text-center>-->
-            <!--<h3 id="login-title">Connexion</h3>-->
-          <!--</div>-->
-          <!--<div padding>-->
-            <!--<ion-item>-->
-              <!--<ion-input name="email" placeholder="exemple@email.com" formControlName="email"></ion-input>-->
-            <!--</ion-item>-->
-            <!--<ion-item>-->
-              <!--<ion-input name="password" type="password" placeholder="Mot de Passe" formControlName="password"></ion-input>-->
-            <!--</ion-item>-->
-          <!--</div>-->
-          <!--<div padding>-->
-            <!--<ion-button shape="round" type="submit" [disabled]="form.invalid" expand="block">Connexion</ion-button>-->
-          <!--</div>-->
-          <!--<div padding>-->
-            <!--<ion-button shape="round" expand="block" (click)="toRegister()" >Créer un compte</ion-button>-->
-          <!--</div>-->
-        <!--</ion-col>-->
-      <!--</ion-row>-->
-      <!--<ion-row>-->
-        <!--<div id="link-forgot-mdp">-->
-          <!--<a>Mot de passe Oublié</a> -->
-        <!--</div>-->
-    <!--</ion-row>-->
-    <!--</ion-grid>-->
-  <!--</form>-->
-<!--</ion-content>-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Map</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #map id="map"></div>  
+</ion-content>

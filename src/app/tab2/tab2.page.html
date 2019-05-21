@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Choisi tes ingrédients
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="ios fab-vertical-bottom hydrated fab-horizontal-end">
+    <ion-fab-button color="success" class="ion-color ion-color-success ios ion-activatable ion-focusable hydrated">
+      <ion-icon name="arrow-dropup" role="img" class="ios hydrated" aria-label="arrow dropup"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top" class="ios fab-list-side-top hydrated">
+      <ion-fab-button color="light" class="ion-color ion-color-light ios fab-button-in-list ion-activatable ion-focusable hydrated">
+        <ion-icon name="logo-facebook" role="img" class="ios hydrated" aria-label="logo facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" class="ion-color ion-color-light ios fab-button-in-list ion-activatable ion-focusable hydrated">
+          <img src="../assets/img/champi.png"/>
+      </ion-fab-button>
+      <ion-fab-button color="light" class="ion-color ion-color-light ios fab-button-in-list ion-activatable ion-focusable hydrated">
+        <ion-icon name="logo-vimeo" role="img" class="ios hydrated" aria-label="logo vimeo"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" class="ion-color ion-color-light ios fab-button-in-list ion-activatable ion-focusable hydrated">
+        <ion-icon name="logo-google" role="img" class="ios hydrated" aria-label="logo google"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
