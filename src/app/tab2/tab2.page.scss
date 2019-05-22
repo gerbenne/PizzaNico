@@ -1,3 +1,13 @@
-ion-content {
+#bg-pizza {
     --background: #fff url('../assets/img/recette-pizza-sauce.jpg') no-repeat center center / cover;
+}
+
+ion-button {
+    padding: 0 15px;
+    --border-color: #10dc60;
+    --color: #10dc60;
+}
+
+ion-input {
+    text-align: center;
 }
