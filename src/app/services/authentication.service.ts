@@ -13,6 +13,7 @@ import { UserModel } from "../models/user.model";
 import { BehaviorSubject } from 'rxjs';
 import { Platform } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import {Pro} from "@ionic/pro";
 const TOKEN_KEY = 'auth-token';
 
 // Config
@@ -73,6 +74,15 @@ export class AuthService {
             .then( apiResponse => Promise.resolve(apiResponse) ) // Resolve Promise success
             .catch( apiResponse => Promise.reject(apiResponse) ) // Reject Promise error
     };
+
+    public getLike = (token:String) : Promise<any>=>{
+        let myHeader = new HttpHeaders();
+        return this.HttpClient.post( `${this.apiUrl}/getlike`, { "token":token}, { headers: myHeader } )
+            .toPromise() // Use Promise in an Angular Service
+            .then( apiResponse => Promise.resolve(apiResponse) ) // Resolve Promise success
+            .catch( apiResponse => Promise.reject(apiResponse) ) // Reject Promise error
+    };
+
 
     setToken(token){
         return this.storage.set(TOKEN_KEY, token).then(() => {
