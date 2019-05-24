@@ -1,8 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import {IngredientsService} from "../services/ingredients.service";
+import { PizzasService } from "../services/pizzas.service";
 import {AuthService} from "../services/authentication.service";
-import {Router} from "@angular/router";
-import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-tab2',
@@ -11,25 +10,99 @@ import {FormBuilder} from "@angular/forms";
 })
 export class Tab2Page implements OnInit{
 
-  public ingredients = [];
+    public ingredients = [];
+
+    public composition = [];
+
+    public name = "";
+
+    private token = "";
 
     constructor(
         private IngredientsService: IngredientsService,
+        private PizzasService: PizzasService,
+        private AuthService:AuthService
     ) { }
 
-  init(){
+    init(){
       this.IngredientsService.getAll()
           .then( apiResponse => this.provideIngredients(apiResponse) )
-          .catch( apiResponse => console.error(apiResponse) )
-  }
+          .catch( apiResponse => console.error(apiResponse) );
+      this.AuthService.getToken().then(res => this.provideToken(res));
+    }
 
-  provideIngredients(data){
+    provideIngredients(data){
       for (let row of data.results){
           this.ingredients.push(row);
       }
-  }
+    }
 
-  ngOnInit(){
-    this.init()
-  }
+    provideToken(token){
+        this.token = token;
+    }
+
+    create(){
+        if (this.name!=="" && this.composition.length>0){
+            this.PizzasService.create(this.name,this.composition,this.token)
+                .then( apiResponse => this.validate(apiResponse) )
+                .catch( apiResponse => console.error(apiResponse) )
+        }
+    }
+
+    validate(data){
+        if (data.statusCode==="200"){
+            alert(data.results);
+            this.name = "";
+            this.composition = [];
+        }
+    }
+
+    addToComp(id){
+        let find = false;
+        let i=0;
+        for(let row of this.composition){
+            if (row.id===id){
+                this.composition[i].qte++;
+                find = !find;
+            }
+            i++;
+        }
+        if(!find){
+            let obj = {"id":id,"qte":1};
+            this.composition.push(obj);
+        }
+    }
+
+    findname(id){
+        for (let row of this.ingredients){
+            if (row.id===id){
+                return row.name
+            }
+        }
+        return "";
+    }
+
+    remove(id){
+        let find = false;
+        let i = 0;
+        let temparr = [];
+        for (let row of this.composition){
+            if (row.id===id){
+                find = true;
+                if (row.qte>1){
+                    row.qte--;
+                    temparr.push(row);
+                }
+            }
+            else {
+                temparr.push(row);
+            }
+            i++;
+        }
+        this.composition = temparr;
+    }
+
+    ngOnInit(){
+        this.init()
+    }
 }

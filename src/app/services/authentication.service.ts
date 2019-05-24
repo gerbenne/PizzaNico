@@ -68,8 +68,6 @@ export class AuthService {
     public login = ( email: String, password: String ): Promise<any> => {
         // Optional: set header request
         let myHeader = new HttpHeaders();
-        myHeader.append('Content-Type', 'application/json');
-
         return this.HttpClient.post( `${this.apiUrl}/login/`, { "username":email, "password":password}, { headers: myHeader } )
             .toPromise() // Use Promise in an Angular Service
             .then( apiResponse => Promise.resolve(apiResponse) ) // Resolve Promise success
@@ -84,6 +82,10 @@ export class AuthService {
 
     isAuthenticated() {
         return this.authenticationState.value;
+    }
+
+    getToken(){
+        return this.storage.get(TOKEN_KEY);
     }
 
 }

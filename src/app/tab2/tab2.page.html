@@ -7,20 +7,26 @@
 </ion-header>
 <ion-content>
   <ion-content id="bg-pizza">
+    <ion-list>
+      <ion-item *ngFor="let comp of composition">
+        <ion-label>{{findname(comp.id)}}  x {{comp.qte}}</ion-label>
+        <ion-button (click)="remove(comp.id)">
+          <ion-icon name="remove-circle"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
     <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="ios fab-vertical-bottom hydrated fab-horizontal-end">
       <ion-fab-button color="success" class="ion-color ion-color-success ios ion-activatable ion-focusable hydrated">
         <ion-icon name="arrow-dropup" role="img" class="ios hydrated" aria-label="arrow dropup"></ion-icon>
       </ion-fab-button>
       <ion-fab-list side="top" class="ios fab-list-side-top hydrated">
-
-        <ion-fab-button color="light" class="ion-color ion-color-light ios fab-button-in-list ion-activatable ion-focusable hydrated" *ngFor ="let ingredient of ingredients">
+        <ion-fab-button color="light" class="ion-color ion-color-light ios fab-button-in-list
+        ion-activatable ion-focusable hydrated" *ngFor ="let ingredient of ingredients" (click)="addToComp(ingredient.id)">
           <img src="https://apipizza.herokuapp.com/static/img/ingrds/{{ingredient.name}}.png"/>
-          <!--<ion-text>{{ingredient.name}}</ion-text>-->
         </ion-fab-button>
-
       </ion-fab-list>
     </ion-fab>
   </ion-content>
-  <ion-input placeholder="Donne lui un nom" type="text"></ion-input>
-  <ion-button shape="round" fill="outline" expand="full">Valider</ion-button>
+  <ion-input placeholder="Donne lui un nom" type="text" [(ngModel)]="name"></ion-input>
+  <ion-button shape="round" fill="outline" expand="full" (click)="create()">Valider</ion-button>
 </ion-content>
