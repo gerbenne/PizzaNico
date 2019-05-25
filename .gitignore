@@ -11,9 +11,12 @@ log.txt
 *.sublime-workspace
 .vscode/
 npm-debug.log*
-
+www/
+platforms
+config.xml
 .idea/
 .ionic/
+resources/
 .sourcemaps/
 .sass-cache/
 .tmp/
