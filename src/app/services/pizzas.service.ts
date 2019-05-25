@@ -30,7 +30,7 @@ export class PizzasService{
 
     public getAll = (): Promise<any> =>{
         let myHeader = new HttpHeaders();
-        return this.HttpClient.get( `${this.apiUrl}/`,  { headers: myHeader } )
+        return this.HttpClient.post( `${this.apiUrl}/`,  { headers: myHeader } )
             .toPromise()
             .then( apiResponse => Promise.resolve(apiResponse) ) // Resolve Promise success
             .catch( apiResponse => Promise.reject(apiResponse) ) // Reject Promise error
@@ -55,6 +55,22 @@ export class PizzasService{
     public unlike = (id: Number,token: String): Promise<any> =>{
         let myHeader = new HttpHeaders();
         return this.HttpClient.post( `${this.apiUrl}/unlike`,{"pizza_id":id,'token':token},  { headers: myHeader } )
+            .toPromise()
+            .then( apiResponse => Promise.resolve(apiResponse) ) // Resolve Promise success
+            .catch( apiResponse => Promise.reject(apiResponse) ) // Reject Promise error
+    };
+
+    public getMypizza = (token: String): Promise<any> =>{
+        let myHeader = new HttpHeaders();
+        return this.HttpClient.post( `${this.apiUrl}/me`,{'token':token},  { headers: myHeader } )
+            .toPromise()
+            .then( apiResponse => Promise.resolve(apiResponse) ) // Resolve Promise success
+            .catch( apiResponse => Promise.reject(apiResponse) ) // Reject Promise error
+    }
+
+    public delete = (id: Number,token: String): Promise<any> =>{
+        let myHeader = new HttpHeaders();
+        return this.HttpClient.post( `${this.apiUrl}/delete`,{"pizza_id":id,'token':token},  { headers: myHeader } )
             .toPromise()
             .then( apiResponse => Promise.resolve(apiResponse) ) // Resolve Promise success
             .catch( apiResponse => Promise.reject(apiResponse) ) // Reject Promise error

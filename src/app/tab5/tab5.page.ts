@@ -3,11 +3,11 @@ import { PizzasService } from "../services/pizzas.service";
 import {AuthService} from "../services/authentication.service";
 
 @Component({
-  selector: 'app-tab4',
-  templateUrl: 'tab4.page.html',
-  styleUrls: ['tab4.page.scss']
+  selector: 'app-tab5',
+  templateUrl: 'tab5.page.html',
+  styleUrls: ['tab5.page.scss']
 })
-export class Tab4Page implements OnInit{
+export class Tab5Page implements OnInit{
     private token = "";
 
     private pizzas = [];
@@ -23,10 +23,10 @@ export class Tab4Page implements OnInit{
         this.init()
     }
     async init(){
-        await this.AuthService.getToken().then(res => this.provideToken(res));
-        this.PizzasService.getMypizza(this.token)
+        this.PizzasService.getAll()
             .then( apiResponse => this.providePizza(apiResponse))
             .catch( apiResponse => console.error(apiResponse) );
+        await this.AuthService.getToken().then(res => this.provideToken(res));
         this.AuthService.getLike(this.token)
             .then( apiResponse => this.provideLikeUser(apiResponse))
             .catch( apiResponse => console.error(apiResponse) );
@@ -86,16 +86,5 @@ export class Tab4Page implements OnInit{
     }
     getPrice(str){
         return parseFloat(str).toFixed(2)
-    }
-    delete(id){
-        this.PizzasService.delete(id,this.token)
-            .then( apiResponse => this.resetPizza())
-            .catch( apiResponse => console.error(apiResponse) );
-    }
-    resetPizza(){
-        this.pizzas = [];
-        this.PizzasService.getMypizza(this.token)
-            .then( apiResponse => this.providePizza(apiResponse))
-            .catch( apiResponse => console.error(apiResponse) );
     }
 }
