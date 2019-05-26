@@ -1,5 +1,6 @@
 #bg-pizza {
     --background: #fff url('../assets/img/recette-pizza-sauce.jpg') no-repeat center center / cover;
+    height: 65%;
 }
 
 ion-button {
@@ -10,4 +11,12 @@ ion-button {
 
 ion-input {
     text-align: center;
+}
+
+.test {
+    color: #fff;
+}
+
+ion-item {
+    --background: #fff url('../assets/img/fish-section-bg-80.png') no-repeat center center / cover;
 }

@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { PizzasService } from "../services/pizzas.service";
 import {AuthService} from "../services/authentication.service";
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab5',
@@ -16,7 +17,8 @@ export class Tab5Page implements OnInit{
 
     constructor(
         private PizzasService: PizzasService,
-        private AuthService:AuthService
+        private AuthService:AuthService,
+        public toastController: ToastController
     ) { }
 
     ngOnInit(){
@@ -73,13 +75,23 @@ export class Tab5Page implements OnInit{
       }
     }
 
-    like(id){
+    async like(id){
+      const toast = await this.toastController.create({
+        message: "J'aime",
+        duration: 2000
+      });
+      toast.present();
         this.PizzasService.like(id,this.token)
             .then( apiResponse => this.resrtLikeUser())
             .catch( apiResponse => console.error(apiResponse) );
     }
 
-    unlike(id){
+    async unlike(id){
+      const toast = await this.toastController.create({
+        message: "J'aime pas trop",
+        duration: 2000
+      });
+      toast.present();
         this.PizzasService.unlike(id,this.token)
             .then( apiResponse => this.resrtLikeUser())
             .catch( apiResponse => console.error(apiResponse) );

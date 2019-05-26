@@ -14,3 +14,17 @@
     }
   
   }
+
+  ion-toolbar {
+    --background: #10dc60;
+  }
+
+  ion-searchbar{
+    width: 85%;
+    margin: auto;      
+    .searchbar-input-container{            
+        .searchbar-input{
+            border-radius: 20px;
+        }
+    }
+ }
