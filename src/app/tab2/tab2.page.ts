@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import {IngredientsService} from "../services/ingredients.service";
 import { PizzasService } from "../services/pizzas.service";
 import {AuthService} from "../services/authentication.service";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -21,7 +22,8 @@ export class Tab2Page implements OnInit{
     constructor(
         private IngredientsService: IngredientsService,
         private PizzasService: PizzasService,
-        private AuthService:AuthService
+        private AuthService:AuthService,
+        public alertController: AlertController
     ) { }
 
     init(){
@@ -49,9 +51,13 @@ export class Tab2Page implements OnInit{
         }
     }
 
-    validate(data){
+    async validate(data){
         if (data.statusCode==="200"){
-            alert(data.results);
+            const alert = await this.alertController.create({
+                header: data.results,
+                buttons: ['Ok']
+              });
+              await alert.present();
             this.name = "";
             this.composition = [];
         }
